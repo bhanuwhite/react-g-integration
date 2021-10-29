@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap");
+
+
+
+body {
+  font-size: 16px;
+  font-family: "Cabin";
+  margin: 0;
+  font-family: "Cabin" !important;
+  padding: 0;
+  height: 100vh;
+  background: #eee !important;
+  color: var(--text-primary);
+
+}
+.heading{
+  color: #141418;
+}
+label.form-label {
+    color: #141418;
+}
+
+.signup-butto {
+  border-radius: 20px;
+  border: 1px solid #141418;;
+  background-color: #fff;
+  color: #000000;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+}
+
+.sign-up-cont {
+  display: flex;
+  background-color: #cfcfcf;
+  justify-content: center;
+  width: 800px;
+  align-items: center;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 60px 0px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
+  
+}
+
+@media only screen and (max-width: 767px) {
+  .sign-up-cont {
+    display: flex;
+    background-color: #cfcfcf;
+    justify-content: center;
+    width: 290px;
+    border-radius: 20px;
+    align-items: center;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0px;
+
+}
+}
