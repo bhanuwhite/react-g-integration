@@ -19,7 +19,12 @@ const SignupUi = () => {
   const checkPassword = () => {
     return formData.password !== formData.confirmPassword;
   };
-
+  const checkEmailField = () => {
+    return formData.email.length === 0;
+  };
+  const checkPasswordField = () => {
+    return formData.password.length === 0;
+  };
   const checkEmailExists = () => {
     if (users) {
       const userEmails = users.map((e) => e.email);
@@ -31,26 +36,32 @@ const SignupUi = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(checkEmailExists()){
-      alert('email exists')
-    }else if(checkPassword()){
-      alert('password missmatch')
-    }else{
-      console.log('success....')
+    if (checkEmailExists()) {
+      alert("email exists");
+    } else if (checkPassword()) {
+      alert("password missmatch");
+    } else if (checkEmailField()) {
+      alert("email field cant be empty");
+    } else if (checkPasswordField()) {
+      alert("password field cant be empty");
+    } else {
+      console.log("success....");
       if (users) {
-         localStorage.setItem(
-          "users",
-          JSON.stringify([...users, formData])
-        );
+        localStorage.setItem("users", JSON.stringify([...users, formData]));
+        alert("SignUp Successfull")
+        history.push("/login")
       } else {
         localStorage.setItem("users", JSON.stringify([formData]));
+        alert("signUp successfull")
+        history.push("/login")
       }
       // setTimeout(() => {
       //   alert("success")
-        
-      // }, 1000);
 
-      setformData( {
+      // }, 1000);
+      
+
+      setformData({
         ...formData,
         FirstName: "",
         lastName: "",
@@ -156,6 +167,10 @@ const SignupUi = () => {
                   >
                     SIGN UP
                   </button>
+                </div>
+                <div>
+                <br />
+                  Already Have The Account? <br /> <button type="button"  className="signup-butto mt-2 text-center" onClick={()=>history.push("./login")}>Login</button>
                 </div>
               </form>
             </div>

@@ -1,24 +1,27 @@
 import React,{useState,useEffect} from "react";
+import {useHistory} from 'react-router-dom'
 import "./Login.css";
-
+import GoogleLogin from "react-google-login";
+import TwitterLogin from "react-twitter-login";
 const LoginUi = () => {
+  const history = useHistory()
   const initialState = {
     email: "",
     password: "",
   }
   const [Data, setData] = useState([]);
   const [formData, setFormData] = useState(initialState);
-  useEffect(() => {
-    function auth(){
-      const reg = JSON.parse(localStorage.getItem('users'));
-     return Boolean( reg.find((eachUser) => {
-       return eachUser.email===formData.email && eachUser.password === formData.password
-      })
-     )
-  }
-auth();
-console.log(auth(),"useEffect done")
-});
+  function auth(){
+    const reg = JSON.parse(localStorage.getItem('users'));
+    if(reg){
+      return Boolean( reg.find((eachUser) => {
+        return eachUser.email===formData.email && eachUser.password === formData.password
+       })
+      )
+
+    }
+}
+ 
   const { email, password } = formData;
   const handleChange = (e) => {
     setFormData({
@@ -31,8 +34,18 @@ console.log(auth(),"useEffect done")
     e.preventDefault();
     setData([...Data, formData]);
     setFormData(initialState);
-  };
+    if(auth){
+      history.push('/dashboard')
+    }
+  };              
   console.log(Data,"Data");
+  const responseGoogle = response => {
+    console.log(response);
+  };
+
+  const authHandler = (err, data) => {
+    console.log(err, data);
+  };
 
  //console.log(JSON.parse(localStorage.getItem('users')),"JsonData");
   return (
@@ -47,7 +60,7 @@ console.log(auth(),"useEffect done")
             <span>or use your account</span>
             <div className="input-field">
               <div className="svg-container start">
-              <i className="fa fa-envelope-o" aria-hidden="true"></i>
+              <i className="fa fa-envelope" aria-hidden="true"></i>
               </div>
               <input
                 type="email"
@@ -69,11 +82,29 @@ console.log(auth(),"useEffect done")
                 value={password}
               />
             </div>
-
+                               
             <a href="#">Forgot your password?</a>
             <button type="button" onClick={handleSubmit} >
               Sign In
             </button>
+            <br />
+        <div>
+              <GoogleLogin
+  clientId="328651840970-tio0fprqg8dorij06l0onkc0r59asd3i.apps.googleusercontent.com"
+  buttonText="Login with Google"
+  onSuccess={responseGoogle}
+  onFailure={responseGoogle}
+  cookiePolicy="single_host_origin"
+/> 
+</div>
+           <div>
+
+    {/* <TwitterLogin
+      authCallback={authHandler}
+      consumerKey={CONSUMER_KEY}
+      consumerSecret={CONSUMER_SECRET}
+    /> */}
+           </div>
           
             <a id="mobile-up" name="signup" >
               Sign Up <i className="fa fa-arrow-right"></i>
@@ -87,6 +118,7 @@ console.log(auth(),"useEffect done")
               <br />
 
               <button
+               onClick={() => history.push('/signup')}
                 className="ghost"
                 id="signUp"
                 name="signup"
@@ -96,6 +128,8 @@ console.log(auth(),"useEffect done")
               >
                 Sign Up
               </button>
+              <br />
+            
             </div>
           </div>
         </div>

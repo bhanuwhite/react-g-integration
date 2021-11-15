@@ -5,14 +5,16 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
-import LoginUi from "./LoginUi";
-import SignupUi from "./SignupUi";
+import LoginUi from "./auth/LoginUi";
+import SignupUi from "./auth/SignupUi";
+import Dashboard from './dashboard/Dashboard'
 const Routes = () => {
   return (
     <Router>
       <Switch>
         <Route path="/login" component={LoginUi} />
         <Route path="/signup" component={SignupUi} />
+        <Route path="/dashboard" component={Dashboard}/>
         <Redirect exact from ="/" to="/login" />
       </Switch>
     </Router>
