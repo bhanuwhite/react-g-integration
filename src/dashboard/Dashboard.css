@@ -1,3 +1,9 @@
+/*** Side menu styles start ***/
+
+body{
+    height: 100vh;
+}
+
 .main-wrapper {
     position: relative;
     display: flex;
@@ -20,7 +26,9 @@ a.d-flex {
     align-items: center;
     gap: 15px;
 }
-
+span.nav-text {
+    top: 5px;
+}
 
 .side-menu .menu {
     list-style-type: none;
@@ -49,7 +57,7 @@ a.d-flex {
     text-decoration: none;
     font-size: 14px;
     border-radius: 18px;
-   
+    /* background: #F4F4FF; */
     border-left: 8px solid transparent;
     border-color: transparent;
     font-weight: 500;
@@ -88,7 +96,7 @@ a.d-flex {
 
 .nav-icons {
     width: 30px;
-  
+    /* margin-right: 10px; */
     margin-top: 10px;
 }
 
@@ -97,6 +105,7 @@ a.d-flex {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    /* width: 100%; */
     padding-right: 15px;
     border-bottom: 1px solid #ccc;
 }
@@ -106,7 +115,10 @@ a.d-flex {
     margin-left: 30px;
     cursor: pointer;
 }
+/* end side menu styles */
 
+
+/* ****header styles */
 
 header {
     background-color: #fff;
@@ -143,7 +155,7 @@ header {
 
 .search-box .form-control-feedback {
     position: absolute;
-    
+    /* z-index: 2; */
     display: block;
     width: 2.375rem;
     height: 40px;
@@ -163,7 +175,7 @@ header {
     align-items: center;
 }
 
-.user-action p {
+.user-action p {  
     font-size: 14px;
     margin-bottom: 0px;
     line-height: 16px;
@@ -194,7 +206,10 @@ header {
 .user-options {
     width: 30px;
 }
+/* End header styles */
+  
 
+/* content wrapper styles */
 .content-wrapper {
     height: 100vh;
     background: #F4F4FF;
@@ -207,4 +222,181 @@ header {
 .content-wrapper.expanded {
     width: calc(100% - 200px);
     margin-left: auto;
+}
+
+/* table  */
+
+/* home content */
+
+/* ******************************************* */
+/* ******************************************* */
+
+.content-outer.d-flex.justify-content-around {
+    flex-direction: row;
+    align-items: center;
+}
+
+.data.text-success {
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.card.mb-3.widget-content.p-3{
+    box-shadow: 0 0.46875rem 2.1875rem rgb(4 9 20 / 3%), 0 0.9375rem 1.40625rem rgb(4 9 20 / 3%),
+     0 0.25rem 0.53125rem rgb(4 9 20 / 5%), 0 0.125rem 0.1875rem rgb(4 9 20 / 3%);
+    border-width: 0;
+    transition: all .2s;
+}
+
+
+.btn-focus {
+    color: #fff;
+    background-color: #444054;
+    border-color: #444054;
+}
+
+.home-content{
+    padding: 8px;
+    height: calc(100% - 70px);
+    overflow-y: auto;
+    
+}
+
+.cross-image{
+    width: 15px;
+}
+
+.cardDivider{
+    border: 1px solid #d1d7e0;
+    height: 2px;
+    
+}
+
+img.tweeter-image {
+    width: 40px;
+}
+
+.tweet-description.ml-4 {
+    min-height: 170px;
+    max-height: 540px;
+}
+
+
+@media screen and (max-width: 767px) {
+    .toggle-button{
+        display: none;
+    }
+}
+/* ******************************************* */
+/* ******************************************* */
+
+
+.drive {
+    border: 1px solid #5f6368;
+    padding: 6px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+img.img-fluid.drive-image {
+    width: 40px;
+}
+
+
+/* setting */
+
+.setting-content{
+    padding: 15px;
+    
+}
+
+.fb {
+    background-color: #3B5998;
+    color: white;
+  }
+  
+  .twitter {
+    background-color: #55ACEE;
+    color: white;
+  }
+  
+  .google {
+    background-color: #dd4b39;
+    color: white;
+  }
+  .github{
+      background-color: #3C1D43;
+  }
+  .instagram{
+      background-color: #DF2A51;
+  }
+
+  
+.btn1 {
+  padding: 12px;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none; 
+  text-align: center;
+}
+.btn1:hover {
+    opacity: 1;
+    text-decoration: none; 
+    color: #fff;
+  }
+
+ .setting-page{
+     display: none;
+ } 
+
+ .heading-inner.ml-3 {
+    color: #7a869a;
+}
+
+
+
+
+img.user-img {
+    width: 42px;
+
+    margin-left: 10px;
+}
+
+
+.dropdown-menu.show{
+    width: 290px;
+    position: absolute;
+    transform: translate3d(-5px, 42px, 0px)!important; 
+    top: 10px!important;
+    left: -229px!important;
+    will-change: transform;
+}
+h5{
+    font-size: 15px;
+}
+h5.ml-1.drop-details {
+    color: #0069d9;
+}
+
+
+.model-fade {
+    position: fixed;
+    right: 25px;
+    opacity: 99;
+    z-index: 9999;
+    top: 68px;
+    background:#fff;
+    overflow-y: auto;
+    box-shadow: 0 0.46875rem 2.1875rem rgb(4 9 20 / 3%),
+     0 0.9375rem 1.40625rem rgb(4 9 20 / 3%), 0 0.25rem 0.53125rem rgb(4 9 20 / 5%), 0 0.125rem 0.1875rem rgb(4 9 20 / 3%);
+
+}
+.model-fade {
+    display: none;
 }

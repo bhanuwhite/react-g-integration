@@ -1,9 +1,8 @@
 import "./App.css";
 import Routes from "./Routes";
-import GoogleDriveApi from "./GoogleDriveApi";
-import Dashboard from "./dashboard/Dashboard";
+
 function App() {
-   <Dashboard />;
+   return <Routes />
 }
 
 export default App;
