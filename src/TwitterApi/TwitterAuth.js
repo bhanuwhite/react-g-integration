@@ -1,5 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
-import { getRecentTweets, getTweets } from "../api";
+import { getRecentTweets } from "../api";
 import _ from "lodash";
 import moment from 'moment'
 
@@ -22,7 +24,6 @@ function TwitterApi() {
     setTweets({ ...tweets, loading: true });
     getRecentTweets({query:"KCR",start_date:formatedDate})
       .then((res) => {
-        console.log(res,"res");
         if (res.status === 200) {
           setTweets({
             ...tweets,

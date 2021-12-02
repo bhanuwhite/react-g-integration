@@ -64,7 +64,6 @@ const GoogleDriveApi = () => {
    *  appropriately. After a sign-in, the API is called.
    */
   const updateSigninStatus = (isSignedIn) => {
-    console.log(isSignedIn,'isSignedin')
     if (isSignedIn) {
       // Set the signed in user
       setSignedInUser(gapi.auth2.getAuthInstance().currentUser.je.Qt);

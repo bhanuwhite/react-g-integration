@@ -9929,7 +9929,7 @@ react-transition-group@^4.4.1:
 
 react-twitter-login@^1.4.0:
   version "1.4.0"
-  resolved "https://registry.npmjs.org/react-twitter-login/-/react-twitter-login-1.4.0.tgz"
+  resolved "https://registry.yarnpkg.com/react-twitter-login/-/react-twitter-login-1.4.0.tgz#554051b27b9f6c15fe31fec6e7315b72554aed36"
   integrity sha512-b688EnR3r7/g16qZmJsbUnAq3oDTAmV6fekVQ+CA+K1skTtrD74jkcft7OokcXExVPJenarTFuwmambUnRv9wA==
   dependencies:
     crypto-js "^3.1.9-1"

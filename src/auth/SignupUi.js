@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
-import "./SignupUi.css";
+import React, { useState } from "react";
 import _ from "lodash";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import { data, post } from "jquery";
+import "./SignupUi.css";
+
 const { REACT_APP_API_URL } = process.env;
+
+
 const SignupUi = () => {
   const initialState = {
     firstName: "",
@@ -15,7 +17,6 @@ const SignupUi = () => {
     confirmPassword: "",
   };
   const history = useHistory();
-  const [Data, setData] = useState([]);
   const [formData, setformData] = useState(initialState);
 
   function CreatePost() {
@@ -30,11 +31,9 @@ const SignupUi = () => {
     axios
       .post(`${REACT_APP_API_URL}/user/addUser`, postData)
       .then((res) => {
-        console.log(res);
         if (res.status === 200) {
           return res.data;
         }
-        console.log(res, "res");
       })
       .then((res) => {
         if (res) {
@@ -70,7 +69,6 @@ const SignupUi = () => {
   // }
 
   const users = JSON.parse(localStorage.getItem("users"));
-  console.log(users, "users");
 
   const checkPassword = () => {
     return formData.password !== formData.confirmPassword;
@@ -115,7 +113,6 @@ const SignupUi = () => {
     // }
     else {
       CreatePost();
-      console.log("success....");
       //  if (users) {
       //    localStorage.setItem("users", JSON.stringify([...users, formData]));
       //    alert("SignUp Successfull");
@@ -141,7 +138,6 @@ const SignupUi = () => {
 
   
   };
-  console.log(JSON.parse(localStorage.getItem("users")), "Local Storage");
   const handleChange = (e) => {
     setformData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -219,7 +215,7 @@ const SignupUi = () => {
                     Password
                   </label>
                   <input
-                    type="text"
+                    type="password"
                     name="password"
                     value={password}
                     onChange={handleChange}
@@ -232,7 +228,7 @@ const SignupUi = () => {
                     Confirm Password
                   </label>
                   <input
-                    type="text"
+                    type="password"
                     name="confirmPassword"
                     value={confirmPassword}
                     onChange={handleChange}

@@ -2,12 +2,21 @@
 
 body{
     height: 100vh;
+    margin: 0;
+    padding: 0;
+    /* display: block; */
 }
 
 .main-wrapper {
     position: relative;
     display: flex;
-    width: 100%;
+    /* width: 100%; */
+    width: 100vw
+}
+
+.header-search-icon {
+    top: 10px !important;
+    left: 10px !important
 }
 
 .side-menu {
@@ -350,10 +359,10 @@ img.img-fluid.drive-image {
     text-decoration: none; 
     color: #fff;
   }
-
+/* 
  .setting-page{
      display: none;
- } 
+ }  */
 
  .heading-inner.ml-3 {
     color: #7a869a;
@@ -399,4 +408,23 @@ h5.ml-1.drop-details {
 }
 .model-fade {
     display: none;
+}
+
+/* .modal-fade-hide {
+    display:none
+} */
+.profile_details_text_editgroup{
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+
+.side-menu-list > li {
+    cursor: pointer;
+}
+
+.custom-dialog-style{
+    max-width: 70vw;
 }

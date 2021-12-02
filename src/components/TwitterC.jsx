@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import twitterImg from "../images/twitter.png";
 const TwitterC = () => {
@@ -64,7 +66,7 @@ const TwitterC = () => {
                     <div className="d-flex justify-content-start">
                       <div className="mt-1">
                         <img
-                          src="images/twitter.png"
+                          src={twitterImg}
                           alt=""
                           className="tweeter-image"
                         />

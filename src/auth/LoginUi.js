@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { useHistory, useLocation,} from "react-router-dom";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import "./Login.css";
-import _ from 'lodash'
+import _ from "lodash";
 import GoogleLogin from "react-google-login";
-import TwitterLogin from "react-twitter-login";
 import axios from "axios";
-import { data } from "jquery";
+
 const { REACT_APP_API_URL } = process.env;
-const {REACT_APP_GOOGLE_DRIVE_CLIENT_ID}  = process.env;
+const { REACT_APP_GOOGLE_DRIVE_CLIENT_ID } = process.env;
 const LoginUi = () => {
   const history = useHistory();
-  let location = useLocation();
   const initialState = {
     email: "",
     password: "",
@@ -24,21 +23,23 @@ const LoginUi = () => {
       data: data,
     })
       .then((res) => {
-        console.log(res,"res...");
-        if(res.status === 200){
-          return res.data
+        if (res.status === 200) {
+          return res.data;
         }
-      }).then((res) => {
-        if(res){
-           localStorage.setItem('user-info', JSON.stringify(_.get(res,'data','')))
-           localStorage.setItem('token', _.get(res,'token'))
-           history.replace("/dashboard")
+      })
+      .then((res) => {
+        if (res) {
+          localStorage.setItem(
+            "user-info",
+            JSON.stringify(_.get(res, "data", ""))
+          );
+          localStorage.setItem("token", _.get(res, "token"));
+          history.replace("/dashboard");
         }
       })
       .catch((err) => {
-        console.log(err,"err");
-        alert("please enter the correct credentials")
-
+        console.log(err, "err");
+        alert("please enter the correct credentials");
       });
   };
 
@@ -74,8 +75,20 @@ const LoginUi = () => {
   };
 
   const responseGoogle = (response) => {
-    console.log(response,"response");
-    history.push("/dashboard")
+    if (response) {
+      localStorage.setItem(
+        "user-info",
+        JSON.stringify(_.get(response, "wt", ""))
+      );
+      localStorage.setItem(
+        "token",
+        JSON.stringify(_.get(response, "accessToken"))
+      );
+    }
+    history.push("/dashboard");
+  };
+  const errGoogle = (err) => {
+    console.log(err, "err");
   };
 
   return (
@@ -123,7 +136,7 @@ const LoginUi = () => {
                 clientId={REACT_APP_GOOGLE_DRIVE_CLIENT_ID}
                 buttonText="Login with Google"
                 onSuccess={responseGoogle}
-                onFailure={responseGoogle}
+                onFailure={errGoogle}
                 cookiePolicy="single_host_origin"
               />
             </div>
