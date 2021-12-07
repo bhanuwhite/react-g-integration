@@ -44,21 +44,7 @@ const LoginUi = () => {
   };
 
   const [formData, setFormData] = useState(initialState);
-  // function auth() {
-  //   const reg = JSON.parse(localStorage.getItem("users"));
-  //   if (reg) {
-  //     return Boolean(
-  //       reg.find((eachUser) => {
-  //        console.log(eachUser,"eachUseer")
-  //         return (
-  //           eachUser.email === formData.email &&
-  //           eachUser.password === formData.password
-  //         );
-  //       })
-  //     );
-  //   }
-  //   console.log(reg, "reg");
-  // }
+
   const { email, password } = formData;
   const handleChange = (e) => {
     setFormData({
@@ -139,13 +125,6 @@ const LoginUi = () => {
                 onFailure={errGoogle}
                 cookiePolicy="single_host_origin"
               />
-            </div>
-            <div>
-              {/* <TwitterLogin
-      authCallback={authHandler}
-      consumerKey={CONSUMER_KEY}
-      consumerSecret={CONSUMER_SECRET}
-    /> */}
             </div>
 
             <a id="mobile-up" name="signup">

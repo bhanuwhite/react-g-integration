@@ -109,9 +109,9 @@ const GoogleDriveApi = () => {
       );
   };
 
-  const handleClientLoad = () => {
-    gapi.load("client:auth2", initClient);
-  };
+  // const handleClientLoad = () => {
+  //   gapi.load("client:auth2", initClient);
+  // };
 
   // const showDocuments = () => {
   //   setListDocumentsVisibility(true);

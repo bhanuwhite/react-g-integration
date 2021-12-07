@@ -11,6 +11,7 @@ const Header = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user-info");
+    window.dispatchEvent(new Event("storage"));
     history.push("/");
   };
   return (

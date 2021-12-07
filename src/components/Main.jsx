@@ -6,12 +6,14 @@ import ModalComponent from "./ModalComponent";
 import { ContextProvider } from "../context";
 
 const Main = () => {
-  const { state, setState } = useContext(ContextProvider);
-  console.log(state, "aaaa");
+  const { state} = useContext(ContextProvider);
+   console.log(state, "aaaa");
   const [show, setShow] = useState({
     show: false,
     flag: "",
   });
+  const getAllFiles = () =>
+    _.size(_.get(state, "files", "")) ? _.get(state, "files", "") : [];
 
   const getFiles = () =>
     _.size(_.get(state, "files", ""))
@@ -20,6 +22,7 @@ const Main = () => {
           (eachFile) => eachFile.mimeType === show.flag
         )
       : [];
+
   return (
     <>
       <div className="home-content">
@@ -29,7 +32,12 @@ const Main = () => {
         </div>
       </div>
 
-      <ModalComponent show={show.show} setShow={setShow} files={getFiles()} />
+      <ModalComponent
+        show={show}
+        setShow={setShow}
+        files={getFiles()}
+        allfiles={getAllFiles()}
+      />
     </>
   );
 };

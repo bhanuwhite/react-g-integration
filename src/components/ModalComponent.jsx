@@ -1,44 +1,61 @@
-import React from 'react'
-import {Modal, Button} from 'react-bootstrap'
+import React from "react";
+import { Modal, Button } from "react-bootstrap";
 
-const imgUrl="https://drive.google.com/uc?export=view&id="
-const  ModalComponent = ({show, setShow, files}) => {
-    console.log(files);
-    return (
-      <>
-        <Modal dialogClassName="custom-dialog-style" show={show} onHide={() => setShow({...show, show:false})}>
-          <Modal.Header closeButton>
-            <Modal.Title>My Images</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
+const imgUrl = "https://drive.google.com/uc?export=view&id=";
+const pdfUrl = "https://drive.google.com/uc?export=view&id=";
+const ModalComponent = ({ show, setShow, files, allfiles }) => {
+  console.log(files,"files")
+  return (
+    <>
+      <Modal
+        dialogClassName="custom-dialog-style"
+        show={show.show}
+        onHide={() => setShow({ ...show, show: false })}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Drive Files</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className="d-flex flex-wrap justify-content-center">
+            {files.map((e, index) => {
+              return (
+                <div className="MainFileContent" key={index}>
+                  {e.mimeType === "image/jpeg" ? (
+                    <img
+                      src={`${imgUrl}${e.id}`}
+                      alt="DriveImages"
+                      className="w-100 h-100"
+                    />
+                  ) : e.mimeType === "application/pdf" ? (
+                    <iframe
+                      title={e.name}
+                      src={`${pdfUrl}${e.id}`}
+                      height="150"
+                      width="600"
+                    />
+                  ) : null}
+                </div>
+              );
+            })}
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button
+            variant="secondary"
+            onClick={() => setShow({ ...show, show: false })}
+          >
+            Close
+          </Button>
+          <Button
+            variant="primary"
+            onClick={() => setShow({ ...show, show: false })}
+          >
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  );
+};
 
-              <div className="d-flex flex-wrap justify-content-center" >
-                  {
-                      files.map((e) => {
-                          return(
-                              <div style={{height: "130px", margin: 4, width: "200px", border: "1px solid #eee",padding:"10px"}}>
-                                  {e.mimeType === "image/jpeg" ?  <img src={`${imgUrl}${e.id}`} className="w-100 h-100"/>  : null}
-                               
-                              </div>
-                          )
-                      })
-                  }
-
-              </div>
-
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onHide={() => setShow({...show, show:false})}>
-              Close
-            </Button>
-            <Button variant="primary" onHide={() => setShow({...show, show:false})}>
-              Save Changes
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </>
-    );
-  }
-  
-
-export default ModalComponent
+export default ModalComponent;

@@ -6,7 +6,6 @@ import "./SignupUi.css";
 
 const { REACT_APP_API_URL } = process.env;
 
-
 const SignupUi = () => {
   const initialState = {
     firstName: "",
@@ -50,23 +49,6 @@ const SignupUi = () => {
         console.log(err);
       });
   }
-
-  // const Signup = (data) =>{
-  //   console.log(REACT_APP_API_URL)
-  //   axios({
-  //     method:"POST",
-  //     url:`${REACT_APP_API_URL}users/addUser`,
-  //     data:data
-
-  //   })
-  //   .then((res)=>{
-  //     console.log(res)
-  //   })
-  //   .catch((err) =>{
-  //     console.log(err)
-  //   })
-
-  // }
 
   const users = JSON.parse(localStorage.getItem("users"));
 
@@ -131,12 +113,9 @@ const SignupUi = () => {
         email: "",
         password: "",
         confirmPassword: "",
-       
       });
-      history.push('/')
+      history.push("/");
     }
-
-  
   };
   const handleChange = (e) => {
     setformData({ ...formData, [e.target.name]: e.target.value });

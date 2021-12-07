@@ -4,8 +4,10 @@ import React,  {useState} from 'react'
 export const ContextProvider = React.createContext()
 const ContextComponent = ({children}) => {
 
-    const initialState = {
-        files: []
+    const initialState ={
+        files: [],
+        name:"",
+        email:""
     }
 
 

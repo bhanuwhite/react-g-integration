@@ -1,25 +1,19 @@
-import React, { useState, useEffect,useContext } from "react";
-import GoogleLogin from "react-google-login";
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useState, useEffect, useContext } from "react";
 import { gapi } from "gapi-script";
-import _ from 'lodash';
+import _ from "lodash";
 
-import {ContextProvider} from "../context" 
+import { ContextProvider } from "../context";
 
-
-
-
-const { REACT_APP_GOOGLE_DRIVE_CLIENT_ID, REACT_APP_GOOGLE_DRIVE_API_KEY } = process.env;
+const { REACT_APP_GOOGLE_DRIVE_CLIENT_ID, REACT_APP_GOOGLE_DRIVE_API_KEY } =
+  process.env;
 const DriveLogin = () => {
-const {state, setState} = useContext(ContextProvider)
-  const [userInfo, setUserInfo] = useState()
-  // const responseGoogle = (response) => {
-  //   console.log(response, "GOOGLEresponse");
-  // };
-
-  // const errGoogle = (err) => {
-  //   console.log(err, "something went wrong");
-  // };
-
+  const { state, setState } = useContext(ContextProvider);
+  const [userInfo, setUserInfo] = useState();
+  // const { name, email } = JSON.parse(
+  //   localStorage.getItem("driveLoginUserInfo")
+  //);
 
   const DISCOVERY_DOCS = [
     "https://www.googleapis.com/discovery/v1/apis/drive/v3/rest",
@@ -28,8 +22,6 @@ const {state, setState} = useContext(ContextProvider)
   const [documents, setDocuments] = useState([]);
 
   const listFiles = (searchTerm = null) => {
-
-    console.log(gapi.client.drive.files)
     gapi.client.drive.files
       .list({
         pageSize: 100,
@@ -38,44 +30,73 @@ const {state, setState} = useContext(ContextProvider)
       })
       .then(function (response) {
         const res = JSON.parse(response.body);
-        console.log(res.files)
-        setState({...state, files:res.files})
 
-        // setDocuments([...documents, res.files]);
+        if (JSON.stringify(state.files) !== JSON.stringify(res.files)) {
+          localStorage.setItem(
+            "driveLoginUserInfo",
+            JSON.stringify({
+              email: _.get(
+                gapi.auth2.getAuthInstance(),
+                "currentUser.le.wt.cu",
+                ""
+              ),
+              name: _.get(
+                gapi.auth2.getAuthInstance(),
+                "currentUser.le.wt.Ad",
+                ""
+              ),
+            })
+          );
+
+          setState({
+            ...state,
+            files: res.files,
+            name: _.get(
+              gapi.auth2.getAuthInstance(),
+              "currentUser.le.wt.Ad",
+              ""
+            ),
+            email: _.get(
+              gapi.auth2.getAuthInstance(),
+              "currentUser.le.wt.cu",
+              ""
+            ),
+          });
+        }
       });
   };
-  
-  const handleAuthClick = () => {
-    gapi.auth2.getAuthInstance().signIn();
+
+  const handleAuthClick = (status) => {
+    if (status) {
+      gapi.auth2
+        .getAuthInstance()
+        .signIn()
+        .then((res) => {
+          console.log(res, "res");
+        })
+        .catch((err) => console.log(err, "err"));
+    } else {
+      gapi.auth2
+        .getAuthInstance()
+        .signOut()
+        .then((res) => {
+          JSON.parse(localStorage.removeItem("driveLoginUserInfo"));
+        })
+        .catch((err) => console.log(err, "err"));
+    }
   };
 
+  const [isSignedIn, setIsSignedIn] = useState(
+    JSON.parse(localStorage.getItem("signedIn"))
+  );
+
   const updateSigninStatus = (isSignedIn) => {
-    console.log( _.get(gapi.auth2.getAuthInstance(), "currentUser.le.wt.cu", ""))
-    setUserInfo({
-      ...userInfo,
-      email: _.get(gapi.auth2.getAuthInstance(), "currentUser.le.wt.cu", ""),
-      name: _.get(gapi.auth2.getAuthInstance(), "currentUser.le.wt.Ad", ""),
-    });
-
+    setIsSignedIn(isSignedIn);
+    localStorage.setItem("signedIn", JSON.stringify(isSignedIn));
     if (isSignedIn) {
-      gapi.client.drive.files
-        .list({
-          pageSize: 10,
-          fields: "nextPageToken, files(id, name, mimeType, modifiedTime)",
-          q: undefined,
-        })
-        .then(function (response) {
-          const res = JSON.parse(response.body);
-          setDocuments(res.files);
-        })
-        .catch((err) => {
-          console.log(err, "err");
-        });
-
       listFiles();
     } else {
-      // prompt user to sign in
-      // handleAuthClick();
+      setState({ ...state, files: [], email: "", name: "" });
     }
   };
 
@@ -104,20 +125,23 @@ const {state, setState} = useContext(ContextProvider)
   };
 
   useEffect(() => {
-    gapi.load("client:auth2", initClient);
+    gapi.load("client:auth2", () => initClient());
   }, []);
 
   return (
     <div>
-
-      <button className="btn btn-info" onClick={handleAuthClick}>Login with google</button>
-      {/* <GoogleLogin
-        clientId={REACT_APP_GOOGLE_DRIVE_CLIENT_ID}
-        buttonText="Login with Google"
-        onSuccess={responseGoogle}
-        onFailure={errGoogle}
-        cookiePolicy="single_host_origin"
-      /> */}
+      {isSignedIn ? (
+        <button
+          className="btn btn-danger"
+          onClick={() => handleAuthClick(false)}
+        >
+          LogOut
+        </button>
+      ) : (
+        <button className="btn btn-info" onClick={() => handleAuthClick(true)}>
+          Login with google
+        </button>
+      )}
     </div>
   );
 };
