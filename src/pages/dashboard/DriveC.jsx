@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useContext } from "react";
-import { ContextProvider } from "../context";
-import driveImg from "../images/google-drive.png";
+import { ContextProvider } from "../../context";
+import driveImg from "../../images/google-drive.png";
 import _ from "lodash";
 
 const DriveC = ({ setShow, show }) => {

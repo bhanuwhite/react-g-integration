@@ -3,7 +3,7 @@ import _ from "lodash";
 import DriveC from "./DriveC";
 import TwitterC from "./TwitterC";
 import ModalComponent from "./ModalComponent";
-import { ContextProvider } from "../context";
+import { ContextProvider } from "../../context";
 
 const Main = () => {
   const { state} = useContext(ContextProvider);

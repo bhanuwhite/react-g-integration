@@ -3,10 +3,10 @@
 import React, { useState, useEffect } from "react";
 import _ from "lodash";
 import { gapi } from "gapi-script";
-import Header from "../components/Header";
-import Main from "../components/Main";
+import Header from "../../components/header/Header";
+import Main from "./Main";
 import "./Dashboard.css";
-import SideMenu from "../components/SideMenu";
+import SideMenu from "../../components/sidemenu/SideMenu";
 
 const { REACT_APP_GOOGLE_DRIVE_API_KEY, REACT_APP_GOOGLE_DRIVE_CLIENT_ID } =
   process.env;

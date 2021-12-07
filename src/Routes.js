@@ -8,14 +8,14 @@ import {
 } from "react-router-dom";
 import _ from "lodash";
 import { gapi } from "gapi-script";
-import LoginUi from "./auth/LoginUi";
-import SignupUi from "./auth/SignupUi";
-import Dashboard from "./dashboard/Dashboard";
+import LoginUi from "./pages/login/LoginUi";
+import SignupUi from "./pages/signup/SignupUi";
+import Dashboard from "./pages/dashboard/Dashboard";
 import GithubApi from "./GithubApi/GithubApi";
 import TwitterApi from "./TwitterApi/TwitterAuth";
-import EditProfile from "./dashboard/EditProfile";
-import ViewProfile from "./dashboard/ViewProfile";
-import SettingPage from "./dashboard/SettingPage";
+import EditProfile from "./components/header/EditProfile";
+import ViewProfile from "./components/header/ViewProfile";
+import SettingPage from "./pages/settings/SettingPage";
 import { ContextProvider } from "./context";
 const { REACT_APP_GOOGLE_DRIVE_CLIENT_ID, REACT_APP_GOOGLE_DRIVE_API_KEY } =
   process.env;
@@ -80,10 +80,11 @@ const Routes = () => {
         <Route path="/signup" component={SignupUi} />
         <PrivateRoutes path="/dashboard" component={Dashboard} />
         <PrivateRoutes path="/settings" component={SettingPage} />
-        <Route path="/githubapi" component={GithubApi} />
         <Route path="/twitterapi" component={TwitterApi} />
+
+        {/* <Route path="/githubapi" component={GithubApi} />
         <Route path="/editprofile" component={EditProfile} />
-        <Route path="/viewprofile" component={ViewProfile} />
+        <Route path="/viewprofile" component={ViewProfile} /> */}
         <Redirect
           exact
           from="/"

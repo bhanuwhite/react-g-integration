@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-import twitterImg from "../images/twitter.png";
+import twitterImg from "../../images/twitter.png";
 const TwitterC = () => {
     return (
         <>
