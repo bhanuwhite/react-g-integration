@@ -48,9 +48,10 @@ const ViewProfile = () => {
   };
 
   useEffect(() => {
-    if(localStorage.getItem("token")){
-      FetchcurrentUser();
-    }
+    FetchcurrentUser();
+  //   if(localStorage.getItem("token")){
+  //     FetchcurrentUser();
+  //   }
   }, []);
 
   return (

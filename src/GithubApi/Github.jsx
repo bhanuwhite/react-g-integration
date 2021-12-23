@@ -1,6 +1,6 @@
 import React from 'react'
 import githubIMG from "../images/github.png";
-
+import "../dashboard/Dashboard.css"
 const Github = () => {                                           
     return (      
         <div>       

@@ -1,6 +1,12 @@
-.mx-auto{
+.twitter-auth{
    width :20%;
    margin:0;
    height : 400px;
+ 
+}
+.Twitter_body{
 
+   height:100%;
+   display: flex;
+   justify-content: center;
 }

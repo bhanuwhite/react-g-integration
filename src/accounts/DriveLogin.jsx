@@ -9,6 +9,11 @@ import { ContextProvider } from "../context";
 const { REACT_APP_GOOGLE_DRIVE_CLIENT_ID, REACT_APP_GOOGLE_DRIVE_API_KEY } =
   process.env;
 const DriveLogin = () => {
+  const [driveFiles, setDriveFiles] = useState({
+    data: [],
+    error: false,
+    loading: false,
+  });
   const { state, setState } = useContext(ContextProvider);
   const [userInfo, setUserInfo] = useState();
   // const { name, email } = JSON.parse(
@@ -19,9 +24,10 @@ const DriveLogin = () => {
     "https://www.googleapis.com/discovery/v1/apis/drive/v3/rest",
   ];
 
-  const [documents, setDocuments] = useState([]);
+  // const [documents, setDocuments] = useState([]);
 
-  const listFiles = (searchTerm = null) => {
+  const  listFiles = (searchTerm = null) => {
+  setDriveFiles({...driveFiles,loading:true,error:false})
     gapi.client.drive.files
       .list({
         pageSize: 100,
@@ -30,7 +36,7 @@ const DriveLogin = () => {
       })
       .then(function (response) {
         const res = JSON.parse(response.body);
-
+        setDriveFiles({...driveFiles,driveFiles:res.files,loading:false,error:false})
         if (JSON.stringify(state.files) !== JSON.stringify(res.files)) {
           localStorage.setItem(
             "driveLoginUserInfo",
@@ -65,7 +71,7 @@ const DriveLogin = () => {
         }
       });
   };
-
+// console.log(data,"datastatues")
   const handleAuthClick = (status) => {
     if (status) {
       gapi.auth2
@@ -128,7 +134,11 @@ const DriveLogin = () => {
     gapi.load("client:auth2", () => initClient());
   }, []);
 
-  return (
+  return (<>
+  <div>
+    {/* {
+      loading ? (<h4>loading....</h4>) : error ? (<h4>something went wrong</h4> : data :)    } */}
+  </div>
     <div>
       {isSignedIn ? (
         <button
@@ -143,6 +153,8 @@ const DriveLogin = () => {
         </button>
       )}
     </div>
+  </>
+  
   );
 };
 

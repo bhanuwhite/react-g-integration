@@ -65,7 +65,7 @@ const SignupUi = () => {
   //    return formData.password.length <=7;
   //  }
   const checkPhoneLength = () => {
-    return formData.phone.length !== 10;
+    return formData.phone.length && formData.phone.length !== 10;
   };
   const checkEmailExists = () => {
     if (users) {
@@ -78,6 +78,11 @@ const SignupUi = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(checkPhoneLength){
+      document.querySelector("#phone-limit").classList.add("error");
+      document.querySelector("#phone-limit").innerHTML = "phone number must be of 10 digits"
+    }
+    
 
     if (checkEmailExists()) {
       alert("email exists");
@@ -118,13 +123,9 @@ const SignupUi = () => {
     }
   };
   const handleChange = (e) => {
-    setformData({ ...formData, [e.target.name]: e.target.value });
-    if(checkPhoneLength){
-      document.querySelector("#phone-limit").classList.add("error");
-      document.querySelector("#phone-limit").innerHTML = "phone number must be of 10 digits"
+      setformData({ ...formData, [e.target.name]: e.target.value });
     }
-    
-  };
+  
 
 
   const { firstName, lastName, phone, email, password, confirmPassword } =
@@ -174,15 +175,20 @@ const SignupUi = () => {
                     Phone number{" "}
                   </label>
                   <input
-                    type="tel"
+                    type="text"
                     className="form-control"
+                    pattern="[0-9]"
+                    id = "phone-limit"
                     name="phone"
                     id="phone-limit"
                     onChange={handleChange}
                     value={phone}
                   />
-                  
+                   {checkPhoneLength()?<span>phone number must be of 10 digits</span>:null}
                 </div>
+                <div>
+                </div>
+      
                 <div className="mb-3">
                   <label htmlFor="exampleInputEmail1" className="form-label">
                     Email address

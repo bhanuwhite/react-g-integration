@@ -1,7 +1,8 @@
 import axios from "axios";
 import { ISODateString } from "../helpers";
 
-const { REACT_APP_TWITTER_API_BEARER_TOKEN, REACT_APP_USER_ID } = process.env;
+const { REACT_APP_TWITTER_API_BEARER_TOKEN, REACT_APP_USER_ID ,REACT_APP_GITHUB_CLIENT_SECRET,REACT_APP_GITHUB_CLIENT_ID } = process.env;
+
 
 export const getTweets = async () => {
   return await axios({
@@ -34,3 +35,30 @@ export const getUserId = async () => {
     url: ``,
   });
 };
+
+
+export  async function getGitHubUser({ code }){
+  const githubToken = await axios
+    .post(
+      `https://github.com/login/oauth/access_token?client_id=${REACT_APP_GITHUB_CLIENT_ID}&client_secret=${REACT_APP_GITHUB_CLIENT_SECRET}&code=${code}`
+    )
+    .then((res) => res.data)
+
+    .catch((error) => {
+      throw error;
+    });
+console.log(githubToken,"githubtoken")
+  // const decoded = querystring.parse(githubToken);
+
+  // const accessToken = decoded.access_token;
+
+  // return axios
+  //   .get("https://api.github.com/user", {
+  //     headers: { Authorization: `Bearer ${accessToken}` },
+  //   })
+  //   .then((res) => res.data)
+  //   .catch((error) => {
+  //     console.error(`Error getting user from GitHub`);
+  //     throw error;
+  //   });
+}

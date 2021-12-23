@@ -8,9 +8,16 @@ import _ from "lodash";
 const DriveC = ({ setShow, show }) => {
   const { state } = useContext(ContextProvider);
 
-  const handleAuthClick = () => {
-    window.location.href = "https://drive.google.com/drive/my-drive";
+  const handleAuthClick = (filesLength) => {
+    if(filesLength){
+
+      window.location.href = "https://drive.google.com/drive/my-drive";
+    }else{
+
+      console.log("error")
+    }
   };
+
 
   // const { name, email } = JSON.parse(
   //   localStorage.getItem("driveLoginUserInfo")
@@ -33,25 +40,16 @@ const DriveC = ({ setShow, show }) => {
               <span className="ml-2">{state.email}</span>
             </div>
             <div className="icon">
-<<<<<<< HEAD:src/components/DriveC.jsx
               <img                   
                 src={driveImg}
                 alt=""
                 className="img-fluid drive-image"      
               />
             </div>          
-=======
-              <img src={driveImg} alt="" className="img-fluid drive-image" />
-            </div>
->>>>>>> b89d2cb15d625f6363526fd45982c364792beb57:src/pages/dashboard/DriveC.jsx
             <div className="cardDivider my-3"></div>
             <div className="d-flex justify-content-between">  
               <div className="drive">
                 <i className="fa fa-file-o" aria-hidden="true"></i>
-<<<<<<< HEAD:src/components/DriveC.jsx
-                <span className="ml-2" >my files</span>   
-              </div>             
-=======
                 <span
                   className="ml-2"
                   onClick={() => setShow({ ...show, show: true, flag: "" })}
@@ -59,7 +57,6 @@ const DriveC = ({ setShow, show }) => {
                   my files
                 </span>
               </div>
->>>>>>> b89d2cb15d625f6363526fd45982c364792beb57:src/pages/dashboard/DriveC.jsx
               <div className="drive">
                 <i className="fa fa-folder" aria-hidden="true"></i>
                 <span
@@ -78,7 +75,7 @@ const DriveC = ({ setShow, show }) => {
                 <i className="fa fa-file-pdf-o" aria-hidden="true"></i>
                 <span
                   className="ml-2"
-                  onClick={() =>
+                  onClick={() => 
                     setShow({ ...show, show: true, flag: "application/pdf" })
                   }
                 >
@@ -96,7 +93,7 @@ const DriveC = ({ setShow, show }) => {
                 type="button"                     
                 className="btn btn-primary"
                 id="#"
-                onClick={handleAuthClick}                
+                onClick={() => handleAuthClick(state.files.length)}
               >
                 Open Drive
               </button>

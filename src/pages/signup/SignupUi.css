@@ -19,7 +19,10 @@ body {
 label.form-label {
     color: #141418;
 }
-                   
+.error{
+  color:red;
+}
+
 .signup-butto {
   border-radius: 20px;
   border: 1px solid #141418;;
