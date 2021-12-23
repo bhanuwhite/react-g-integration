@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { Button } from "react-bootstrap";
-import searchImg from "../images/search.png";
+import searchImg from "../../images/search.png";
 import { useHistory } from "react-router-dom";
-import ViewProfile from "../dashboard/ViewProfile";
+import ViewProfile from "./ViewProfile";
 
 const Header = () => {
   const history = useHistory();
@@ -11,6 +11,7 @@ const Header = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user-info");
+    window.dispatchEvent(new Event("storage"));
     history.push("/");
   };
   return (

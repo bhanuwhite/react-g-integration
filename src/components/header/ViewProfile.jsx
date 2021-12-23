@@ -6,7 +6,7 @@ import axios from "axios";
 import _ from "lodash";
 import $ from "jquery";
 import EditProfile from "./EditProfile";
-import userProfileImg from "../images/user-profile.png";
+import userProfileImg from "../../images/user-profile.png";
 
 const { REACT_APP_API_URL } = process.env;
 

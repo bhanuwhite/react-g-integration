@@ -2,13 +2,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import $ from "jquery";
-import toggleMenuImg from "../images/toggle-menu.png";
-import homeImg from "../images/home.png";
-import downloadImg from "../images/download.png";
-import votingImg from "../images/voting.png";
-import loginImg from "../images/login.png";
-import settingImg from "../images/setting.png";
-import LogoutImg from "../images/power-off.png";
+import toggleMenuImg from "../../images/toggle-menu.png";
+import homeImg from "../../images/home.png";
+import downloadImg from "../../images/download.png";
+import votingImg from "../../images/voting.png";
+import loginImg from "../../images/login.png";
+import settingImg from "../../images/setting.png";
+import LogoutImg from "../../images/power-off.png";
 import { useHistory, useLocation } from "react-router-dom";
 
 const SideMenu = () => {

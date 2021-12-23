@@ -1,15 +1,10 @@
 import React from "react";
-import TwitterLogin from "../AccountsLogin/TwitterLogin";
-import DriveLogin from "../AccountsLogin/DriveLogin";
-import SideMenu from "../components/SideMenu";
-import Header from "../components/Header";
+import TwitterLogin from "../../accounts/TwitterLogin";
+import DriveLogin from "../../accounts/DriveLogin";
+import SideMenu from "../../components/sidemenu/SideMenu";
+import Header from "../../components/header/Header";
 
 const SettingPage = () => {
-
-
-
-
-
   return (
     <>
       <div className="main-wrapper">
