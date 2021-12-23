@@ -42,7 +42,7 @@ const SignupUi = () => {
             JSON.stringify(_.get(res.data, "data", ""))
           );
 
-          history.replace("/login");
+          history.replace("/login");                      
         }
       })
 
@@ -140,7 +140,13 @@ const SignupUi = () => {
   };
   const handleChange = (e) => {
     setformData({ ...formData, [e.target.name]: e.target.value });
+    if(checkPhoneLength){
+      document.querySelector("#phone-limit").classList.add("error");
+      document.querySelector("#phone-limit").innerHTML = "phone number must be of 10 digits"
+    }
+    
   };
+
 
   const { firstName, lastName, phone, email, password, confirmPassword } =
     formData;
@@ -161,7 +167,7 @@ const SignupUi = () => {
                 <div className="mb-3 ">
                   <label htmlFor="name" className="form-label">
                     First Name{" "}
-                  </label>
+                  </label>    
                   <input
                     type="text"
                     name="firstName"
@@ -184,7 +190,7 @@ const SignupUi = () => {
                     onChange={handleChange}
                   />
                 </div>
-                <div>
+                <div className="mb-3 ">
                   <label htmlFor="name" className="form-label">
                     Phone number{" "}
                   </label>
@@ -192,9 +198,11 @@ const SignupUi = () => {
                     type="tel"
                     className="form-control"
                     name="phone"
+                    id="phone-limit"
                     onChange={handleChange}
                     value={phone}
                   />
+                  
                 </div>
                 <div className="mb-3">
                   <label htmlFor="exampleInputEmail1" className="form-label">
@@ -245,7 +253,7 @@ const SignupUi = () => {
                     SIGN UP
                   </button>
                 </div>
-                <div>
+                <div className="text-center">
                   <br />
                   Already Have The Account? <br />{" "}
                   <button

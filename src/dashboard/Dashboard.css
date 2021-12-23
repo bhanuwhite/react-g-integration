@@ -11,7 +11,7 @@ body{
     position: relative;
     display: flex;
     /* width: 100%; */
-    width: 100vw
+    width: 100vw;
 }
 
 .header-search-icon {
@@ -281,13 +281,16 @@ header {
     
 }
 
-img.tweeter-image {
+/* img.tweeter-image {
     width: 40px;
-}
+} */
 
 .tweet-description.ml-4 {
     min-height: 170px;
     max-height: 540px;
+}
+img.tweeter-image {
+    width: 55px;
 }
 
 
@@ -305,6 +308,7 @@ img.tweeter-image {
     padding: 6px;
     width: 200px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 img.img-fluid.drive-image {
@@ -427,4 +431,20 @@ h5.ml-1.drop-details {
 
 .custom-dialog-style{
     max-width: 70vw;
+}
+
+/* github styles */
+
+.git-details {
+    background: #fff;
+    box-shadow: 0 0.46875rem 2.1875rem rgb(4 9 20 / 3%), 0 0.9375rem 1.40625rem rgb(4 9 20 / 3%),
+     0 0.25rem 0.53125rem rgb(4 9 20 / 5%), 0 0.125rem 0.1875rem rgb(4 9 20 / 3%);
+}
+
+.git-image {
+    width: 60px;
+}
+h5.border-bottom-2 {
+    border-bottom: 2px solid gray;
+    width: fit-content;
 }

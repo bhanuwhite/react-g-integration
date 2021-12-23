@@ -13,7 +13,7 @@ const EditProfile = () => {
     firstName: "",
     lastName: "",
     email: "",
-    phone: "",
+    phone: "",            
   });
 
   const userId = _.get(
@@ -85,8 +85,8 @@ const EditProfile = () => {
               label="First Name"
               value={_.get(formData, "firstName")}
               handleChange={handleChange}
-            />
-          </div>
+            />                                                                                                        
+          </div>      
 
           <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <InputField
@@ -104,7 +104,7 @@ const EditProfile = () => {
               label="E-mail"
               value={_.get(formData, "email")}
               handleChange={handleChange}
-            />
+            />                                         
           </div>
         </div>
         <div className="row">
@@ -116,7 +116,7 @@ const EditProfile = () => {
               handleChange={handleChange}
             />
           </div>
-        </div>
+        </div>                                                      
 
         <div className="row">
           <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 submit ">
@@ -126,7 +126,7 @@ const EditProfile = () => {
                 className="btn btn-success"
                 value="Submit"
                 onClick={handleSubmit}
-              />
+              />                                                            
             </div>
           </div>
         </div>

@@ -28,15 +28,15 @@ const Header = () => {
                   className="form-control"
                   placeholder="Search"
                 />
-              </div>
-            </div>
+              </div>                                            
+            </div>                                
           </div>
           <div className="col-md-6 col-6 text-right">
             <div className="user-action">
               <div>
                 <Button
                   variant="danger"
-                  className="mx-2"
+                  className="mx-2"   
                   onClick={handleLogout}
                 >
                   Logout

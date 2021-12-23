@@ -4,6 +4,7 @@ import DriveC from "./DriveC";
 import TwitterC from "./TwitterC";
 import ModalComponent from "./ModalComponent";
 import { ContextProvider } from "../context";
+import Github from "./Github";
 
 const Main = () => {
   const { state, setState } = useContext(ContextProvider);
@@ -11,7 +12,7 @@ const Main = () => {
   const [show, setShow] = useState({
     show: false,
     flag: "",
-  });
+  });       
 
   const getFiles = () =>
     _.size(_.get(state, "files", ""))
@@ -19,15 +20,16 @@ const Main = () => {
           _.get(state, "files", ""),
           (eachFile) => eachFile.mimeType === show.flag
         )
-      : [];
+      : [];        
   return (
     <>
       <div className="home-content">
         <div className="user-part m-2 pt-3">
           <TwitterC />
           <DriveC setShow={setShow} show={show} />
+          <Github />
         </div>
-      </div>
+      </div>                
 
       <ModalComponent show={show.show} setShow={setShow} files={getFiles()} />
     </>
@@ -35,3 +37,4 @@ const Main = () => {
 };
 
 export default Main;
+        

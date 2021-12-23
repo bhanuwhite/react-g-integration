@@ -22,29 +22,29 @@ const SettingPage = () => {
               <hr />
             </div>
             <div className="container-fluid">
-              <div className="heading-inner ml-3">
-                <h4 className="">Add social media Account</h4>
+              <div className="heading-inner ml-3">  
+                <h4 className="">Add social media Account</h4>                   
               </div>
               <div className="row">
                 <div className="col-xl-6">
                   <div className="social-media-button">
                     <div className="col">
                       <DriveLogin />
-                    </div>
-                  </div>
-                </div>
-                <div className="col-xl-6">
+                    </div>                                         
+                  </div>      
+                </div>     
+                <div className="col-xl-6">              
                   <div className="social-media-button">
                     <div className="col">
                       <TwitterLogin />
                     </div>
                   </div>
-                </div>
+                </div>     
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </div>                                  
     </>
   );
 };

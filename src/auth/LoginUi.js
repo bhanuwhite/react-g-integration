@@ -66,23 +66,23 @@ const LoginUi = () => {
       [e.target.name]: e.target.value,
     });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) => {     
     Login({
       email,
       password,
     });
-    setFormData(initialState);
+    setFormData(initialState);                                                       
   };
 
-  const responseGoogle = (response) => {
+  const responseGoogle = (response) => {   
     if (response) {
       localStorage.setItem(
         "user-info",
-        JSON.stringify(_.get(response, "wt", ""))
+        JSON.stringify(_.get(response, "wt", ""))               
       );
-      localStorage.setItem(
+      localStorage.setItem(         
         "token",
-        JSON.stringify(_.get(response, "accessToken"))
+        JSON.stringify(_.get(response, "accessToken"))         
       );
     }
     history.push("/dashboard");
@@ -126,12 +126,12 @@ const LoginUi = () => {
               />
             </div>
 
-            <a href="#">Forgot your password?</a>
+            <a href="#" className="text-center">Forgot your password?</a>
             <button type="button" onClick={handleSubmit}>
               Sign In
             </button>
             <br />
-            <div>
+            <div className="text-center">
               <GoogleLogin
                 clientId={REACT_APP_GOOGLE_DRIVE_CLIENT_ID}
                 buttonText="Login with Google"
@@ -148,26 +148,26 @@ const LoginUi = () => {
     /> */}
             </div>
 
-            <a id="mobile-up" name="signup">
-              Sign Up <i className="fa fa-arrow-right"></i>
+            <a id="mobile-up" name="signup">   
+              Sign Up <i className="fa fa-arrow-right"></i>                                                              
             </a>
           </form>
-        </div>
+        </div>                              
         <div className="overlay-container">
           <div className="overlay">
-            <div className="overlay-panel overlay-right">
-              <h1>New here ?</h1>
+            <div className="overlay-panel overlay-right">                            
+              <h1>New here ?</h1>                               
               <br />
 
               <button
-                onClick={() => history.push("/signup")}
+                onClick={() => history.push("/signup")}      
                 className="ghost"
-                id="signUp"
-                name="signup"
+                id="signUp"                      
+                name="signup"                         
                 type="button"
-                value="signup"
+                value="signup"        
               >
-                Sign Up
+                Sign Up   
               </button>
               <br />
             </div>

@@ -36,6 +36,7 @@ h1 {
   font-weight: bold;
   margin: 0;
   color:#141418;
+  text-align: center;
 }
 
 h2 {
@@ -54,6 +55,7 @@ span {
   font-size: 12px;
   margin-bottom: 0px;
   color:#141418;
+  text-align: center;
 }
 
 a {
@@ -128,16 +130,15 @@ button.ghost {
 
 .input-field input {
   margin-right: auto;
-  background: #fff;
+  background: transparent !important;
   border: none;
-  color: #141418;
+  /* color: #141418; */
   width: 100%;
 }
 
 .input-field input:focus {
   outline: none;
-  color: inherit;
-  background: inherit;
+  background: red;
 }
 
 .input-field .svg-container.check {
@@ -161,12 +162,12 @@ button.ghost {
 form {
   background-color: #cfcfcf;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   flex-direction: column;
   padding: 0 50px;
   height: 100%;
-  text-align: center;
+  /* text-align: center; */
 }
 
 
@@ -177,9 +178,12 @@ form {
   box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
   position: relative;
   overflow: hidden;
-  width: 768px;
   max-width: 100%;
   min-height: 480px;
+}
+#container{
+   width: 768px;
+
 }
 
 .form-container {

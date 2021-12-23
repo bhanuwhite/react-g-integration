@@ -28,7 +28,7 @@ const SideMenu = () => {
             onClick={() => {
               $(".side-menu").toggleClass("expanded");
               $(".content-wrapper").toggleClass("expanded");
-            }}
+            }}                                                           
           />
         </div>
         <nav className="navbar navbar-expand-md">
@@ -36,14 +36,14 @@ const SideMenu = () => {
             className="navbar-toggler ml-auto"
             type="button"
             data-toggle="collapse"
-            data-target="#collapsibleNavbar"
+            data-target="#collapsibleNavbar"   
           >
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul className="navbar-nav menu side-menu-list">
+            <ul className="navbar-nav menu side-menu-list">              
               <li
-                id="home-button"
+                id="home-button"     
               >
                 <a
                   className={getPathExistedPath("/dashboard") ? "active d-flex" : "d-flex"}
@@ -85,7 +85,7 @@ const SideMenu = () => {
                   <span className="nav-text">Setting</span>
                 </a>
               </li>
-
+                                        
               <li>
                 <a  className="d-flex">
                   <img src={LogoutImg} alt="setting" className="nav-icons" />
@@ -94,6 +94,7 @@ const SideMenu = () => {
               </li>
             </ul>
           </div>
+          
         </nav>
       </div>
     </>

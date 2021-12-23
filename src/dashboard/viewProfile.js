@@ -40,7 +40,7 @@ const ViewProfile = () => {
             phone: phone,
           });
         }
-      })
+      })                       
 
       .catch((err) => {
         console.log(err);
@@ -64,31 +64,31 @@ const ViewProfile = () => {
             <h5>Username:</h5>
             <h5 className="ml-1 drop-details">
               {" "}
-              {currentUser.firstName + currentUser.lastName}
+              {currentUser.firstName + currentUser.lastName}    
             </h5>
           </div>
-          <div className="d-flex justify-content-start">
+          <div className="d-flex justify-content-start">          
             <h5>Email:</h5>
             <h5 className="ml-1 drop-details "> {currentUser.email}</h5>
           </div>
           <div className="d-flex justify-content-center mt-2">
-            <button
+            <button                                     
               type="button"
               className="btn btn-primary"
-              id="edit-profile"
+              id="edit-profile"       
               onClick={() => {
-                $(".model-fade").show(300);
+                $(".model-fade").show(300);                       
               }}
-            >
-              Edit Profile
+            >            
+              Edit Profile                          
             </button>
           </div>
         </div>
-        <div className="model-fade">
+        <div className="model-fade">      
           <div className="container">
             <div
               className="d-flex justify-content-end mt-1 cross-model"
-              id="cross-model"
+              id="cross-model"            
             >
               <a href="#">
                 <button

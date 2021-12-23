@@ -17,7 +17,7 @@ function GithubApi() {
       <div className="container-fluid mt-5">
         <div className="row text-center">
           {users.map((e) => {
-            return <div>{e.login}LOGIN<br /></div>;
+            return <div>{e.login}LOGIN<br /></div>;      
           })}
           <div className="col-10 col-md-4 mt-5"></div>
         </div>
