@@ -28,8 +28,8 @@ const Main = () => {
     <>
       <div className="home-content">
         <div className="user-part m-2 pt-3">
-          <TwitterC />
-          <DriveC setShow={setShow} show={show} />
+          <TwitterC setShow={setShow} show={show} />
+         
           <Github />
         </div>
       </div>                

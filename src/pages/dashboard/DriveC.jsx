@@ -25,38 +25,37 @@ const DriveC = ({ setShow, show }) => {
 
   return (
     <>
-      <h3>Drives</h3>
+    
 
-      <div className="row">
-        <div className="col-md-6 col-xl-4">
-          <div className="card mb-3 widget-content p-3">
-            <div className="d-flex justify-content-end">
-              <a href="#">
-                <button className="close">&times;</button>
-              </a>
-            </div>
-            <div className="content-outer d-flex">
-              <div className="tweet-name"><h3> {state.name}</h3></div>
-              <span className="ml-2">{state.email}</span>
-            </div>
-            <div className="icon">
-              <img                   
-                src={driveImg}
+      
+        <div className="col-md-6 col-xl-6">
+          <div className="card mb-3 widget-content p-3">      
+            <div className="content-outer d-flex justify-content-between">
+              <div className="tweet-name">
+                <h3> {state.name}</h3>
+                <span className="">{state.email}</span>
+                </div>
+             
+              <div className="icon">
+              <img                                
+                src={driveImg}          
                 alt=""
                 className="img-fluid drive-image"      
               />
-            </div>          
+            </div>      
+            </div>      
+                       
             <div className="cardDivider my-3"></div>
             <div className="d-flex justify-content-between">  
               <div className="drive">
-                <i className="fa fa-file-o" aria-hidden="true"></i>
+                <i className="fa fa-file-o" aria-hidden="true"></i>                     
                 <span
                   className="ml-2"
                   onClick={() => setShow({ ...show, show: true, flag: "" })}
                 >
                   my files
                 </span>
-              </div>
+              </div>                  
               <div className="drive">
                 <i className="fa fa-folder" aria-hidden="true"></i>
                 <span
@@ -100,7 +99,9 @@ const DriveC = ({ setShow, show }) => {
             </div>
           </div>
         </div>
-      </div>
+        
+        
+      
     </>
   );
 };

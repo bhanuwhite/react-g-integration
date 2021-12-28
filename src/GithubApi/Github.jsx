@@ -6,7 +6,7 @@ const Github = () => {
         <div>       
             <h3>Github</h3>               
             <div className='row'>                  
-                <div className='col-xl-4'>                                           
+                <div className='col-xl-6'>                                           
                     <div className='git-details p-3'>
                         <div className='d-flex  justify-content-between'>       
                             <div className='user-name'>
@@ -15,7 +15,7 @@ const Github = () => {
                             </div>
                             <div className='git-image'>
                                 <img src={githubIMG} alt="" />                                      
-                                
+                                              
                             </div>                                                     
                         </div>
                         <div className="cardDivider my-3"></div>
@@ -47,4 +47,11 @@ const Github = () => {
     )
 }
 
-export default Github
+export default Github                              
+
+
+                
+
+                                        
+
+

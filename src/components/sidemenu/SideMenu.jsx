@@ -11,64 +11,64 @@ import settingImg from "../../images/setting.png";
 import LogoutImg from "../../images/power-off.png";
 import { useHistory, useLocation } from "react-router-dom";
 
-const SideMenu = () => {
-  const history = useHistory();
+const SideMenu = () => {           
+  const history = useHistory();                                                    
 
-  const location = useLocation();
+  const location = useLocation();                                                                                
 
-  const getPathExistedPath = (pathName) => pathName === location.pathname
-  return (
+  const getPathExistedPath = (pathName) => pathName === location.pathname                                             
+  return (                                                                                
     <>
-      <div className="side-menu">
-        <div className="toggle-button">
+      <div className="side-menu">                                                       
+        <div className="toggle-button">                                                                                                   
           <img
-            src={toggleMenuImg}
+            src={toggleMenuImg}               
             alt="toggle"
             className="toggle-menu"
             onClick={() => {
               $(".side-menu").toggleClass("expanded");
-              $(".content-wrapper").toggleClass("expanded");
+              $(".content-wrapper").toggleClass("expanded");      
             }}                                                           
-          />
-        </div>
-        <nav className="navbar navbar-expand-md">
+          />                
+        </div>    
+        <nav className="navbar navbar-expand-md">    
           <button
-            className="navbar-toggler ml-auto"
+            className="navbar-toggler ml-auto"           
             type="button"
             data-toggle="collapse"
-            data-target="#collapsibleNavbar"   
+            data-target="#collapsibleNavbar"                       
           >
-            <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>     
           </button>
-          <div className="collapse navbar-collapse" id="collapsibleNavbar">
+          <div className="collapse navbar-collapse" id="collapsibleNavbar">                                                      
             <ul className="navbar-nav menu side-menu-list">              
               <li
-                id="home-button"     
+                id="home-button"                                                                                  
               >
                 <a
-                  className={getPathExistedPath("/dashboard") ? "active d-flex" : "d-flex"}
+                  className={getPathExistedPath("/dashboard") ? "active d-flex" : "d-flex"}                                                 
                   onClick={() => history.push("/dashboard")}
                 >
-                  <img src={homeImg} alt="Home" className="nav-icons" />
+                  <img src={homeImg} alt="Home" className="nav-icons" /> 
                   <span className="nav-text">Home</span>
                 </a>
               </li>
               <li>
                 <a  className="d-flex">
-                  <img src={downloadImg} alt="Users" className="nav-icons" />{" "}
+                  <img src={downloadImg} alt="Users" className="nav-icons" />{" "}                                             
                   <span className="nav-text">Users</span>
-                </a>
+                </a>     
               </li>
               <li>
                 <a  className="d-flex">
-                  <img src={votingImg} alt="register" className="nav-icons" />
+                  <img src={votingImg} alt="register" className="nav-icons" />                  
                   <span className="nav-text">Register</span>
                 </a>
               </li>
               <li>
-                <a  className="d-flex">
-                  <img src={loginImg} alt="login" className="nav-icons" />{" "}
-                  <span className="nav-text">Login</span>
+                <a  className="d-flex">          
+                  <img src={loginImg} alt="login" className="nav-icons" />{" "}                                                                                                                                                                                                                                                           
+                  <span className="nav-text">Login</span>                                       
                 </a>
               </li>
               <li>
@@ -89,11 +89,11 @@ const SideMenu = () => {
               <li>
                 <a  className="d-flex">
                   <img src={LogoutImg} alt="setting" className="nav-icons" />
-                  <span className="nav-text">Logout</span>
-                </a>
+                  <span className="nav-text">Logout</span>                  
+                </a>                                                                                   
               </li>
             </ul>
-          </div>
+          </div>   
           
         </nav>
       </div>

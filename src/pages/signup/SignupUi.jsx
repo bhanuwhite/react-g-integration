@@ -152,14 +152,14 @@ const SignupUi = () => {
                     type="text"
                     name="firstName"
                     className="form-control"
-                    id="name"
+                    id="name"                 
                     onChange={handleChange}
                     value={firstName}
                   />
                 </div>
                 <div className="mb-3 ">
                   <label htmlFor="name" className="form-label">
-                    Last Name{" "}
+                    Last Name{" "}                         
                   </label>
                   <input
                     type="text"
@@ -168,7 +168,7 @@ const SignupUi = () => {
                     id="name"
                     value={lastName}
                     onChange={handleChange}
-                  />
+                  />                                  
                 </div>
                 <div className="mb-3 ">
                   <label htmlFor="name" className="form-label">
