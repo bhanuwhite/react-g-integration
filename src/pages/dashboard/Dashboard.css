@@ -353,6 +353,10 @@ img.img-fluid.drive-image {
      display: none;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
  }  */
 
+ a.git-button {
+  color: #fff !important;
+}
+
 .heading-inner.ml-3 {
   color: #7a869a;                        
 }

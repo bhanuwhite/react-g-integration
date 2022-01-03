@@ -63,7 +63,7 @@ const DriveC = ({ setShow, show }) => {
                   onClick={() =>
                     setShow({ ...show, show: true, flag: "image/jpeg" })
                   }
-                >
+                >             
                   my images
                 </span>
               </div>
@@ -107,3 +107,8 @@ const DriveC = ({ setShow, show }) => {
 };
 
 export default DriveC;
+
+
+
+
+

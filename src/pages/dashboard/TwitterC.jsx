@@ -33,24 +33,20 @@ const TwitterC = ({ setShow, show }) => {
             </div>
             <div className="cardDivider my-3"></div>
             <div className="d-flex justify-content-start">
-
-              <div className="tweet-description ml-4">
-                <p>
-                  {" "}
-                  The pain itself is a lot more interesting. She takes
-                  it at the very least and flees to be rejected By the
-                  right of the system to soothe and not to pardon, we
-                  accuse the wise man of choosing the distinction which
-                  repels him! Here they provide us with nothing and
-                  labor.{" "}
-                </p>
+              <div className="tweet-description ml-4 d-flex">
+                <div className="tweet-button">
+                  <button className='btn btn-primary'> My Tweets & Retweets</button>
+                </div>
+                <div className='tweet-button ml-6'>
+                  <button className="btn btn-primary"> Recent Tweets</button>
+                </div>
               </div>
             </div>
-            <div className="button-tweet ml-auto">
+            {/* <div className="button-tweet ml-auto">
               <button type="button" className="btn btn-primary" id="#">
                 Read More
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
 

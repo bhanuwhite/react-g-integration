@@ -48,17 +48,4 @@ export  async function getGitHubUser({ code }){
       throw error;
     });
 console.log(githubToken,"githubtoken")
-  // const decoded = querystring.parse(githubToken);
-
-  // const accessToken = decoded.access_token;
-
-  // return axios
-  //   .get("https://api.github.com/user", {
-  //     headers: { Authorization: `Bearer ${accessToken}` },
-  //   })
-  //   .then((res) => res.data)
-  //   .catch((error) => {
-  //     console.error(`Error getting user from GitHub`);
-  //     throw error;
-  //   });
 }
