@@ -49,3 +49,25 @@ export  async function getGitHubUser({ code }){
     });
 console.log(githubToken,"githubtoken")
 }
+
+
+export const TrendTweet = async() =>{
+  await axios
+      (
+        {
+          method:"GET",
+          url:   `/users/1382194036371456003/tweets`,
+          headers:{
+            Authorization: `Bearer ${REACT_APP_TWITTER_API_BEARER_TOKEN}`
+          } ,
+        }
+      )
+    
+      .then((res)=>{
+        console.log(res,"trendres")
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
+
+}

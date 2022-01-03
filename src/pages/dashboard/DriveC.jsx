@@ -3,32 +3,29 @@
 import React, { useContext } from "react";
 import { ContextProvider } from "../../context";
 import driveImg from "../../images/google-drive.png";
+import twitterImg from "../../images/twitter.png";
 import _ from "lodash";
+import TwitterC from "./TwitterC";
+
 
 const DriveC = ({ setShow, show }) => {
   const { state } = useContext(ContextProvider);
 
   const handleAuthClick = (filesLength) => {
-    if(filesLength){
-
+    if (filesLength) {
       window.location.href = "https://drive.google.com/drive/my-drive";
-    }else{
-
-      console.log("error")
+    } else {
+      console.log("error");
     }
   };
-
-
-  // const { name, email } = JSON.parse(
-  //   localStorage.getItem("driveLoginUserInfo")
-  // );
 
   return (
     <>
     
 
       
-        <div className="col-md-6 col-xl-6">
+        
+    <div className="col-md-6 col-xl-6">
           <div className="card mb-3 widget-content p-3">      
             <div className="content-outer d-flex justify-content-between">
               <div className="tweet-name">
@@ -99,7 +96,6 @@ const DriveC = ({ setShow, show }) => {
             </div>
           </div>
         </div>
-        
         
       
     </>

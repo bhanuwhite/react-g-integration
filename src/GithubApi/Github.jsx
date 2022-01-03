@@ -5,9 +5,9 @@ import axios from "axios";
 import _ from "lodash";
 import { Button } from "react-bootstrap";
 
+const {REACT_APP_GITHUB_CLIENT_ID,REACT_APP_GITHUB_Redirect_URL} = process.env
+
 const Github = () => {
-  const GITHUB_CLIENT_ID = "3d9a62acdac2de76bcb7";
-  const gitHubRedirectURL = "http://localhost:4000/api/auth/github";
   const path = "/";
 
   const [user, setUser] = useState("");

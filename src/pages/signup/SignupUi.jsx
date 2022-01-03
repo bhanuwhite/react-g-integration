@@ -175,7 +175,7 @@ const SignupUi = () => {
                     Phone number{" "}
                   </label>
                   <input
-                    type="text"
+                    type="number"
                     className="form-control"
                     pattern="[0-9]"
                     id = "phone-limit"
