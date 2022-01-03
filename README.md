@@ -2,7 +2,7 @@
 
 # 1. Add this to your .env file
 
-REACT_APP_API_URL = https://g-integration-ahex.herokuapp.com/api 
+##  REACT_APP_API_URL = https://g-integration-ahex.herokuapp.com/api 
 REACT_APP_GOOGLE_DRIVE_API_KEY=
 REACT_APP_GOOGLE_DRIVE_CLIENT_ID=
 REACT_APP_GOOGLE_DRIVE_CLIENT_SECRET = 
