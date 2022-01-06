@@ -12,7 +12,7 @@ const TwitterLoginComponent = (props) => {
     //   consumerSecret={REACT_APP_TWITTER_API_KEY_SECRET}
     // />
 <div>
-  hello
+<button>Login With Twitter</button>
 </div>
   );
 };

@@ -5,7 +5,7 @@ import twitterImg from "../../images/twitter.png";
 import { ContextProvider } from "../../context";
 import DriveC from './DriveC';
 import { useState } from "react";
-const TwitterC = ({ setShow, show }) => {
+const TwitterC = () => {
   // const [show, setShow] = useState({
   //   show: false,
   //   flag: "",
@@ -50,7 +50,7 @@ const TwitterC = ({ setShow, show }) => {
           </div>
         </div>
 
-        <DriveC setShow={setShow} show={show} />
+        {/* <DriveC setShow={setShow} show={show} /> */}
         
 
       </div>

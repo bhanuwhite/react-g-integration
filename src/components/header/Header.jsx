@@ -4,21 +4,18 @@ import { Button } from "react-bootstrap";
 import searchImg from "../../images/search.png";
 import { useHistory } from "react-router-dom";
 import ViewProfile from "./ViewProfile";
-import cookie from 'react-cookies';
 
 const Header = () => {
   const history = useHistory();
 
-  function del_cookie(name) {
-    document.cookie = 'github-jwt' + 
-    '=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
-} 
+
 
 
 
   const handleLogout = () => {
     localStorage.clear();
-    del_cookie();
+
+   
 
     // localStorage.removeItem("token");
     // localStorage.removeItem("user-info");

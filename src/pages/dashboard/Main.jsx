@@ -1,14 +1,15 @@
 import React, { useState, useContext } from "react";
 import _ from "lodash";
-import DriveC from "./DriveC";
+
 import TwitterC from "./TwitterC";
 import ModalComponent from "./ModalComponent";
 import { ContextProvider } from "../../context";
 import Github from '../../GithubApi/Github'
+import DriveLogin from "../../accounts/DriveLogin";
 
 const Main = () => {
   const { state} = useContext(ContextProvider);
-   console.log(state, "aaaa");
+  
   const [show, setShow] = useState({
     show: false,
     flag: "",
@@ -28,9 +29,10 @@ const Main = () => {
     <>
       <div className="home-content">
         <div className="user-part m-2 pt-3">
-          <TwitterC setShow={setShow} show={show} />
+          {/* <TwitterC setShow={setShow} show={show} /> */}
          
-          <Github />
+          <Github setShow={setShow} show={show} />
+   
         </div>
       </div>                
 

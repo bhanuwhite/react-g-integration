@@ -255,6 +255,7 @@ header {
      0 0.25rem 0.53125rem rgb(4 9 20 / 5%), 0 0.125rem 0.1875rem rgb(4 9 20 / 3%);
     border-width: 0;
     transition: all .2s;
+    min-height: 318px
 }
 
 
@@ -315,6 +316,9 @@ img.img-fluid.drive-image {
     width: 40px;
 }
 
+.drive-buttons{
+    margin-top: 62px;
+}
 
 /* setting */
 
@@ -436,6 +440,7 @@ h5.ml-1.drop-details {
 /* github styles */
 
 .git-details {
+    min-height: 318px;
     background: #fff;
     box-shadow: 0 0.46875rem 2.1875rem rgb(4 9 20 / 3%), 0 0.9375rem 1.40625rem rgb(4 9 20 / 3%),
      0 0.25rem 0.53125rem rgb(4 9 20 / 5%), 0 0.125rem 0.1875rem rgb(4 9 20 / 3%);

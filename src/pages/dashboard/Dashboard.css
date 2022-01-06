@@ -299,6 +299,10 @@ img.tweeter-image {
   border-radius: 5px;
 }
 
+span.DriveUser {
+  font-size: 16px;
+}
+
 img.img-fluid.drive-image {                                            
   width: 60px;
 }                                                    
@@ -422,4 +426,10 @@ h5.ml-1.drop-details {
   width: 200px;
   border: 1px solid #eee;       
   padding: 10px;
+}
+
+/* Github styles */
+
+span.GithubUser {
+  font-size: 16px;
 }

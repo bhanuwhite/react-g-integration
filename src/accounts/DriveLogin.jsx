@@ -9,13 +9,11 @@ import { ContextProvider } from "../context";
 const { REACT_APP_GOOGLE_DRIVE_CLIENT_ID, REACT_APP_GOOGLE_DRIVE_API_KEY } =
   process.env;
 const DriveLogin = () => {
-  const [driveFiles, setDriveFiles] = useState({
-    data: [],
-    error: false,
-    loading: false,
-  });
+  // const [driveFiles, setDriveFiles] = useState({
+  //   data: []
+  // });
   const { state, setState } = useContext(ContextProvider);
-  const [userInfo, setUserInfo] = useState();
+
   // const { name, email } = JSON.parse(
   //   localStorage.getItem("driveLoginUserInfo")
   //);
@@ -27,7 +25,11 @@ const DriveLogin = () => {
   // const [documents, setDocuments] = useState([]);
 
   const  listFiles = (searchTerm = null) => {
-  setDriveFiles({...driveFiles,loading:true,error:false})
+  setState({
+    ...state,
+  
+    loading:true
+  });
     gapi.client.drive.files
       .list({
         pageSize: 100,
@@ -36,7 +38,7 @@ const DriveLogin = () => {
       })
       .then(function (response) {
         const res = JSON.parse(response.body);
-        setDriveFiles({...driveFiles,driveFiles:res.files,loading:false,error:false})
+        // setDriveFiles({...driveFiles,driveFiles:res.files})
         if (JSON.stringify(state.files) !== JSON.stringify(res.files)) {
           localStorage.setItem(
             "driveLoginUserInfo",
@@ -53,6 +55,7 @@ const DriveLogin = () => {
               ),
             })
           );
+         
 
           setState({
             ...state,
@@ -67,11 +70,13 @@ const DriveLogin = () => {
               "currentUser.le.wt.cu",
               ""
             ),
+            loading:false
           });
         }
-      });
+      }).catch((err) => {
+        setState({...state, loading: false})
+      })
   };
-// console.log(data,"datastatues")
   const handleAuthClick = (status) => {
     if (status) {
       gapi.auth2
@@ -86,7 +91,7 @@ const DriveLogin = () => {
         .getAuthInstance()
         .signOut()
         .then((res) => {
-          JSON.parse(localStorage.removeItem("driveLoginUserInfo"));
+          JSON.parse(localStorage.removeItem("driveLoginUserInfo,signedIn"));
         })
         .catch((err) => console.log(err, "err"));
     }
@@ -102,7 +107,7 @@ const DriveLogin = () => {
     if (isSignedIn) {
       listFiles();
     } else {
-      setState({ ...state, files: [], email: "", name: "" });
+      setState({ ...state, files: [], email: "", name: "",loading:false });
     }
   };
 

@@ -7,7 +7,8 @@ const ContextComponent = ({children}) => {
     const initialState ={
         files: [],
         name:"",
-        email:""
+        email:"",
+        loading:false
     }
 
 
