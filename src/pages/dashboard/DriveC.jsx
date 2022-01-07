@@ -20,7 +20,7 @@ const DriveC = ({ setShow, show }) => {
   };
 
   const DriveSignInStatus = JSON.parse(
-    localStorage.getItem("driveLoginUserInfo")
+    localStorage.getItem("signedIn")
   );
 
   console.log(state.loading, "drive files load");
@@ -48,7 +48,7 @@ const DriveC = ({ setShow, show }) => {
 
             <div className="cardDivider my-3"></div>
 
-            {DriveSignInStatus?.email ? (
+            {DriveSignInStatus? (
               <>
                 {" "}
                 {state.loading ? (
@@ -58,82 +58,63 @@ const DriveC = ({ setShow, show }) => {
                     </div>
                   </div>
                 ) : (
-                  <>
-                    {!state?.email ? (
-                      <h3 className="text-center mt-5"> LOGIN TO VIEW THE FILES </h3>
-                    ) : (
-                      <div>
-                        <div className="d-flex justify-content-between">
-                          <div className="drive">
-                            <i className="fa fa-file-o" aria-hidden="true"></i>
-                            <span
-                              className="ml-2"
-                              onClick={() =>
-                                setShow({ ...show, show: true, flag: "" })
-                              }
-                            >
-                              my files
-                            </span>
-                          </div>
-                          <div className="drive">
-                            <i className="fa fa-folder" aria-hidden="true"></i>
-                            <span
-                              className="ml-2"
-                              onClick={() =>
-                                setShow({
-                                  ...show,
-                                  show: true,
-                                  flag: "image/jpeg",
-                                })
-                              }
-                            >
-                              my images
-                            </span>
-                          </div>
-                        </div>
-
-                        <div className="d-flex justify-content-between mt-2">
-                          <div className="drive">
-                            <i
-                              className="fa fa-file-pdf-o"
-                              aria-hidden="true"
-                            ></i>
-                            <span
-                              className="ml-2"
-                              onClick={() =>
-                                setShow({
-                                  ...show,
-                                  show: true,
-                                  flag: "application/pdf",
-                                })
-                              }
-                            >
-                              Docs.pdf
-                            </span>
-                          </div>
-                        </div>
-                        {/* <div className="button-tweet mt-4">
-                      <button
-                        type="button"
-                        className="btn btn-primary"
-                        id="#"
-                        onClick={() => handleAuthClick(state.files.length)}
-                      >
-                        Open Drive
-                      </button>
-                    </div> */}
+                  <div>
+                    <div className="d-flex justify-content-between">
+                      <div className="drive">
+                        <i className="fa fa-file-o" aria-hidden="true"></i>
+                        <span
+                          className="ml-2"
+                          onClick={() =>
+                            setShow({ ...show, show: true, flag: "" })
+                          }
+                        >
+                          my files
+                        </span>
                       </div>
-                    )}
-                  </>
+                      <div className="drive">
+                        <i className="fa fa-folder" aria-hidden="true"></i>
+                        <span
+                          className="ml-2"
+                          onClick={() =>
+                            setShow({
+                              ...show,
+                              show: true,
+                              flag: "image/jpeg",
+                            })
+                          }
+                        >
+                          my images
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="d-flex justify-content-between mt-2">
+                      <div className="drive">
+                        <i className="fa fa-file-pdf-o" aria-hidden="true"></i>
+                        <span
+                          className="ml-2"
+                          onClick={() =>
+                            setShow({
+                              ...show,
+                              show: true,
+                              flag: "application/pdf",
+                            })
+                          }
+                        >
+                          Docs.pdf
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 )}
               </>
             ) : (
               <h3 className="text-center"> LOGIN TO VIEW THE FILES </h3>
             )}
           </div>
-          
+
           <div className="d-flex  justify-content-between drive-buttons">
-         
+            {state.email ? (
               <button
                 type="button"
                 className="btn btn-primary"
@@ -142,11 +123,9 @@ const DriveC = ({ setShow, show }) => {
               >
                 Open Drive
               </button>
-              
-              <DriveLogin/>
-              
-             
-           
+            ) : null}
+
+            <DriveLogin />
           </div>
         </div>
       </div>

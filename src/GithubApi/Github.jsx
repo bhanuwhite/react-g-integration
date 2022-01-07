@@ -43,7 +43,7 @@ const GitHubComponent = ({ user, Repo }) => {
             )}
           </div>
           <div className="cardDivider my-3"></div>
-          <div className="gitrepo">
+          {user.name?<><div className="gitrepo">
             <h5 className="border-bottom-2 mb-2">Repositories :</h5>
             <div className="repo-name">
               <ol>
@@ -61,11 +61,13 @@ const GitHubComponent = ({ user, Repo }) => {
                   Open Github
                 </a>
               </button>
-              <button type="button" className=" btn btn-danger mt-2" id="#">
+              {user.name?<button type="button" className=" btn btn-danger mt-2" id="#">
                 logout
-              </button>
+              </button>:null}
+              
             </div>
-          </div>
+          </div> </> : <div className="GithubUser"><h3 className="text-center ">LOGIN TO VIEW THE FILES</h3></div> }
+          
         </div>
       </div>
     </div>

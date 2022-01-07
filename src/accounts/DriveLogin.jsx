@@ -138,11 +138,10 @@ const DriveLogin = () => {
   useEffect(() => {
     gapi.load("client:auth2", () => initClient());
   }, []);
+console.log(state,"state");
 
   return (<>
   <div>
-    {/* {
-      loading ? (<h4>loading....</h4>) : error ? (<h4>something went wrong</h4> : data :)    } */}
   </div>
     <div>
       {isSignedIn ? (

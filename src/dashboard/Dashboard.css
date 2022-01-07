@@ -453,3 +453,6 @@ h5.border-bottom-2 {
     border-bottom: 2px solid gray;
     width: fit-content;
 }
+.GithubUser {
+    margin-top: 62px;
+}
