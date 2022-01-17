@@ -4,6 +4,7 @@ import React, { useContext, useState } from "react";
 import { ContextProvider } from "../../context";
 import driveImg from "../../images/google-drive.png";
 import twitterImg from "../../images/twitter.png";
+import user from "../../images/user.png";
 import _ from "lodash";
 import TwitterC from "./TwitterC";
 import DriveLogin from "../../accounts/DriveLogin";
@@ -32,12 +33,12 @@ const DriveC = ({ setShow, show }) => {
             <div className="content-outer d-flex justify-content-between">
               {!state.email ? (
                 <div className="tweet-name">
-                  <h3> DRIVE NAME</h3>
+                  <h4> DRIVE NAME</h4>
                   <span className="DriveUser">DRIVE EMAIL</span>
                 </div>
               ) : (
                 <div className="tweet-name">
-                  <h3> {state.name}</h3>
+                  <h4> {state.name}</h4>
                   <span className="DriveUser">{state.email}</span>
                 </div>
               )}
@@ -109,7 +110,10 @@ const DriveC = ({ setShow, show }) => {
                 )}
               </>
             ) : (
-              <h3 className="text-center"> LOGIN TO VIEW THE FILES </h3>
+              <div className="drive-before-login text-center d-flex justify-content-center">
+                <img src={user} alt="user-img" className="user-imga" />
+                <h3 className="text-center login-text ml-3 mt-2"> LOGIN TO VIEW THE FILES </h3>
+              </div>
             )}
           </div>
 
@@ -117,7 +121,7 @@ const DriveC = ({ setShow, show }) => {
             {state.email ? (
               <button
                 type="button"
-                className="btn btn-primary"
+                className="btn btn-primary button-84"
                 id="#"
                 onClick={() => handleAuthClick(state.files.length)}
               >

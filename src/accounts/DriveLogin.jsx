@@ -146,13 +146,13 @@ console.log(state,"state");
     <div>
       {isSignedIn ? (
         <button
-          className="btn btn-danger"
+          className="btn btn-danger button-84L"
           onClick={() => handleAuthClick(false)}
         >
           LogOut
         </button>
       ) : (
-        <button className="btn btn-info" onClick={() => handleAuthClick(true)}>
+        <button className="btn btn-info button-84" onClick={() => handleAuthClick(true)}>
           Login with google
         </button>
       )}
